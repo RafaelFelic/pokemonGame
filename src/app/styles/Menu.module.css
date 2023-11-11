@@ -1,0 +1,24 @@
+.menu {
+  font-family: 'PokemonSolid';
+  letter-spacing: 0.3rem;
+  /* width: 90%;
+  max-width: 1500px;
+  height: 42%;
+  margin: auto; */
+}
+
+.h2 {
+  text-shadow: 3px 3px 0 #003a70, 6px 6px 0 #003a70, 9px 9px 0 #003a70,
+    12px 12px 0 #003a70;
+}
+
+.levelBox {
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+  transform: perspective(500px) rotateY(20deg) rotateX(10deg);
+}
+
+/* background-color: #fff; */
+/* box-shadow: 3px 3px 0 #003a70, 6px 6px 0 #003a70, 9px 9px 0 #003a70,
+  12px 12px 0 #003a70;
+border: 8px solid #fff; */
+/* border-radius: 100px; */
