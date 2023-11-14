@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'PokemonSolid';
+  src: url('../../../public/fonts/PokemonSolid.ttf') format('truetype');
+}
+
+body {
+  background: radial-gradient(
+    circle at center,
+    #ffcc01 20%,
+    #ff9933 60%,
+    #cc0000 100%
+  );
+  background-size: cover;
+  height: 100vh;
+}
+
+/* ;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: rgb(49, 49, 49, 1);
+   */

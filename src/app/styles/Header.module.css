@@ -1,0 +1,7 @@
+.header {
+  font-family: 'PokemonSolid', sans-serif;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #2774ba;
+  text-shadow: 3px 3px 0 #003a70, 6px 6px 0 #003a70, 9px 9px 0 #003a70,
+    12px 12px 0 #003a70;
+}
