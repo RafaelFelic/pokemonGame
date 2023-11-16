@@ -18,11 +18,6 @@ export default function RootLayout({ children }) {
         <HeaderComponent />
         <main>{children}</main>
         <FooterComponent />
-        {/* <div>
-          <audio id="backgroundMusic" autoPlay loop>
-            <source src="/audio/melody.wav" type="audio/wav" />
-          </audio>
-        </div> */}
       </body>
     </html>
   );

@@ -1,34 +1,13 @@
-.gameContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
 .gameInfo {
-  /* Estilizações para gameInfo */
-  margin-bottom: 20px; /* Espaço entre gameInfo e cardsGrid */
-}
-
-.cardsGrid {
-  display: grid;
-  /* Estilizações específicas para cada nível (easy, medium, hard) */
-  gap: 30px;
-}
-
-.card {
-  /* flex: 0 0 calc(50% - 10px); */
-  width: 180px;
-  height: 220px;
+  font-family: 'PokemonSolid';
+  font-size: 1.1rem;
+  letter-spacing: 0.2rem;
+  background-color: #003a70;
 }
 
 .cardInner {
-  width: 100%;
-  height: 100%;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  position: relative;
 }
 
 .cardFlipped .cardInner {
@@ -37,20 +16,12 @@
 
 .cardFront,
 .cardBack {
-  position: absolute;
-  text-align: center;
-  background-color: #ececec;
   border: 10px solid #fff;
-  border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
-  width: 100%;
-  height: 100%;
   backface-visibility: hidden;
 }
 
 .cardFront img {
-  width: 100%;
-  height: 100%;
   object-fit: contain; /* Estica a imagem para cobrir a área disponível */
 }
 
@@ -62,18 +33,10 @@
     #358cfd 20px,
     #333 20px
   );
-  border: 20px solid #fff;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+  border-width: 20px;
   transform: rotateY(180deg);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  font-weight: bold;
 }
 
-/* Ajustes específicos para cada nível */
 .easy {
   /* 2 x 2 */
   display: grid;
@@ -82,34 +45,32 @@
 
 .easy .card {
   flex: 0 0 calc(50% - 10px); /* Tamanho maior para cartas no nível easy */
-  width: 220px; /* Largura maior */
-  height: 260px; /* Altura maior */
+  width: 380px; /* Largura maior */
+  height: 400px; /* Altura maior */
 }
 
 .medium {
   /* 2 x 4 */
   display: grid;
-
   grid-template-columns: repeat(4, 1fr);
 }
 
 .medium .card {
   flex: 0 0 calc(25% - 10px); /* Tamanho intermediário */
-  width: 180px; /* Largura intermediária */
-  height: 220px; /* Altura intermediária */
+  width: 280px; /* Largura intermediária */
+  height: 350px; /* Altura intermediária */
 }
 
 .hard {
   /* 4 x 4 */
   display: grid;
-
   grid-template-columns: repeat(4, 1fr);
 }
 
 .hard .card {
   flex: 0 0 calc(25% - 10px); /* Tamanho menor para mais cartas */
-  width: 140px; /* Largura menor */
-  height: 180px; /* Altura menor */
+  width: 200px; /* Largura menor */
+  height: 200px; /* Altura menor */
 }
 
 @keyframes enterAnimation {
@@ -124,5 +85,46 @@
 }
 
 .card {
-  animation: enterAnimation 0.5s ease-in-out;
+  animation: enterAnimation 0.1s ease-out;
+}
+
+@media (max-width: 768px) {
+  .gameInfo {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    padding: 5px;
+  }
+
+  .cardBack {
+    border: 1px solid #fff;
+  }
+
+  .cardFront {
+    border: none;
+    background-color: #fff;
+  }
+
+  .medium {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .easy .card {
+    flex: 0 0 calc(50% - 10px);
+    width: 150px;
+    height: 200px;
+  }
+
+  .medium .card {
+    flex: 0 0 calc(50% - 10px);
+    width: 100px;
+    height: 110px;
+  }
+
+  .hard .card {
+    flex: 0 0 calc(50% - 10px);
+    width: 80px;
+    height: 100px;
+  }
 }
