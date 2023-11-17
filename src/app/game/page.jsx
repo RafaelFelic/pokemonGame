@@ -267,7 +267,7 @@ export default function Game() {
     startTimer();
   };
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
+    <div className="flex flex-col mt-36 md:mt-64 items-center">
       {isGameOver && (
         <GameOverModal
           onRestart={handleRestart}
@@ -278,7 +278,7 @@ export default function Game() {
         />
       )}
       <div
-        className={`${styles.gameInfo} flex absolute top-[100px] md:top-[160px] w-full justify-around text-white p-5`}
+        className={`${styles.gameInfo} flex absolute top-[110px] md:top-[160px] w-full justify-around text-white p-5`}
       >
         <div className="timer">Time left: {timer} seconds</div>
         <div className="score">Score: {score}</div>
