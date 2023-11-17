@@ -44,21 +44,20 @@
 }
 
 .easy .card {
-  flex: 0 0 calc(50% - 10px); /* Tamanho maior para cartas no nível easy */
-  width: 380px; /* Largura maior */
-  height: 400px; /* Altura maior */
+  /* flex: 0 0 calc(50% - 10px); */
+  width: 45vw;
+  height: 33vh;
 }
 
 .medium {
   /* 2 x 4 */
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .medium .card {
-  flex: 0 0 calc(25% - 10px); /* Tamanho intermediário */
-  width: 280px; /* Largura intermediária */
-  height: 350px; /* Altura intermediária */
+  width: 30vw; /* Largura intermediária */
+  height: 16vh; /* Altura intermediária */
 }
 
 .hard {
@@ -68,9 +67,8 @@
 }
 
 .hard .card {
-  flex: 0 0 calc(25% - 10px); /* Tamanho menor para mais cartas */
-  width: 200px; /* Largura menor */
-  height: 200px; /* Altura menor */
+  width: 23vw; /* Largura menor */
+  height: 16vh; /* Altura menor */
 }
 
 @keyframes enterAnimation {
@@ -97,7 +95,7 @@
   }
 
   .cardBack {
-    border: 1px solid #fff;
+    border: 5px solid #fff;
   }
 
   .cardFront {
@@ -105,26 +103,39 @@
     background-color: #fff;
   }
 
-  .medium {
+  .easy {
+    /* 2 x 2 */
     display: grid;
+    gap: 2px;
     grid-template-columns: repeat(2, 1fr);
   }
 
   .easy .card {
-    flex: 0 0 calc(50% - 10px);
-    width: 150px;
-    height: 200px;
+    width: 45vw;
+    height: 30vh;
+  }
+
+  .medium {
+    /* 2 x 4 */
+    display: grid;
+    gap: 2px;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .medium .card {
-    flex: 0 0 calc(50% - 10px);
-    width: 100px;
-    height: 110px;
+    width: 48vw; /* Largura intermediária */
+    height: 16vh; /* Altura intermediária */
+  }
+
+  .hard {
+    /* 4 x 4 */
+    display: grid;
+    gap: 2px;
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .hard .card {
-    flex: 0 0 calc(50% - 10px);
-    width: 80px;
-    height: 100px;
+    width: 24vw; /* Largura menor */
+    height: 16vh; /* Altura menor */
   }
 }

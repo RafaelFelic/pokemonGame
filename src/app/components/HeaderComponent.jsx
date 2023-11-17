@@ -27,11 +27,11 @@ export default function HeaderComponent() {
         <Image
           src="/img/logo.png"
           alt="Memory Game Logo" // Accessibility: Descriptive alt text for the logo
-          width={500} // Adjust as needed
-          height={500} // Adjust as needed
+          width={400} // Adjust as needed
+          height={400} // Adjust as needed
         />
       </div>
-      <h1 className="text-2xl md:text-4xl lg:text-6xl font-black">
+      <h1 className="text-2xl md:text-4xl lg:text-5xl font-black">
         Memory Game
       </h1>
     </header>
