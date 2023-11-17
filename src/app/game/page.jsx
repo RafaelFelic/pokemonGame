@@ -284,7 +284,7 @@ export default function Game() {
         <div className="score">Score: {score}</div>
         <div className="lives">Lives: {lives}</div>
       </div>
-      <div className={`grid mx-auto mt-[9%] gap-2.5 ${styles[level]}`}>
+      <div className={`grid mx-auto my-auto gap-2.5 ${styles[level]}`}>
         {cards.length === 0 ? (
           <p>Loading...</p>
         ) : (

@@ -124,7 +124,7 @@
 
   .medium .card {
     width: 48vw; /* Largura intermediária */
-    height: 16vh; /* Altura intermediária */
+    height: 15vh; /* Altura intermediária */
   }
 
   .hard {
@@ -136,6 +136,6 @@
 
   .hard .card {
     width: 24vw; /* Largura menor */
-    height: 16vh; /* Altura menor */
+    height: 14vh; /* Altura menor */
   }
 }
