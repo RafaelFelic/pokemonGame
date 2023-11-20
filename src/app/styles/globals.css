@@ -6,6 +6,20 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --white: #fff;
+  --black: rgba(0, 0, 0, 1);
+  --yellow: #ffcc01;
+  --orange: #ff9933;
+  --dark-red: #860b0b;
+  --light-blue: #2774ba;
+  --dark-blue: #003a70;
+  --dark-gray: #333;
+  --font-pokemon: 'PokemonSolid';
+}
+
+@font-face {
+  font-family: 'PokemonSolid';
+  src: url('../../../public/fonts/PokemonSolid.ttf') format('truetype');
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,25 +36,13 @@
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: 'PokemonSolid';
-  src: url('../../../public/fonts/PokemonSolid.ttf') format('truetype');
-}
-
 body {
   background: radial-gradient(
     circle at center,
-    #ffcc01 20%,
-    #ff9933 50%,
-    #860b0b 100%
+    var(--yellow) 20%,
+    /* var(--dark-blue) 40%, */ var(--dark-red) 100%
   );
   background-size: cover;
   height: 100vh;
   overflow: hidden;
 }
-
-/* ;
-  background-size: cover;
-  background-attachment: fixed;
-  background-color: rgb(49, 49, 49, 1);
-   */

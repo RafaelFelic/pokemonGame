@@ -1,39 +1,33 @@
 'use client';
 import React from 'react';
-import { useRouter } from 'next/navigation'; // Note: Updated import for useRouter
-import Image from 'next/image'; // Importing Next.js Image component for optimized images
+import { useRouter } from 'next/navigation';
 import styles from '../styles/Header.module.css';
 import 'flowbite';
 
 export default function HeaderComponent() {
   const router = useRouter();
 
-  const handleHeaderClick = () => {
-    router.push('/'); // Redirects to the main menu
+  const headerClick = () => {
+    router.push('/');
   };
 
   return (
     <header
-      onClick={handleHeaderClick}
-      className={`${styles.header} flex justify-center items-center text-6xl font-black fixed inset-x-0 top-0 z-50 text-white tracking-wider p-1 cursor-pointer`}
-      role="banner" // Accessibility: Role for semantic HTML
-      aria-label="Memory Game Header" // Accessibility: Aria-label for understanding the element's purpose
+      onClick={headerClick}
+      className={`${styles.header} z-50 text-white tracking-widest cursor-pointer`}
+      role="banner"
+      aria-label="Memory Game Header"
     >
-      <div
-        role="button" // Accessibility: Making the logo a button
-        aria-label="Go to home page" // Accessibility: Aria-label for screen readers
-        tabIndex="0" // Accessibility: Making the div focusable
-      >
-        <Image
+      <div className="flex justify-center items-center fixed top-0 left-0 right-0 mt-2 md:mt-3 w-60 md:w-full mx-auto">
+        <img
           src="/img/logo.png"
-          alt="Memory Game Logo" // Accessibility: Descriptive alt text for the logo
-          width={400} // Adjust as needed
-          height={400} // Adjust as needed
+          alt="Memory Game Logo"
+          className="w-64 md:w-[450px]"
         />
+        <h1 className="text-2xl md:text-5xl lg:text-6xl ml-2 font-black">
+          Memory Game
+        </h1>
       </div>
-      <h1 className="text-2xl md:text-4xl lg:text-5xl font-black">
-        Memory Game
-      </h1>
     </header>
   );
 }

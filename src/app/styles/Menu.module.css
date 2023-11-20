@@ -1,13 +1,34 @@
 .menu {
-  font-family: 'PokemonSolid';
+  font-family: var(--font-pokemon);
   letter-spacing: 0.2rem;
 }
 
 .h2 {
-  text-shadow: 3px 3px 0 #003a70, 6px 6px 0 #003a70, 9px 9px 0 #003a70;
+  text-shadow: 3px 3px 0 var(--dark-blue), 6px 6px 0 var(--dark-blue),
+    9px 9px 0 var(--dark-blue);
 }
 
 .levelBox {
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+  border: 10px double var(--white);
+  box-shadow: 5px 5px 10px var(--dark-gray);
   transform: perspective(500px) rotateY(20deg) rotateX(10deg);
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .levelBox {
+    border: 5px double var(--white);
+  }
+}
+
+/* Landscape styles */
+@media screen and (orientation: landscape) and (max-width: 1200px) {
+  .h2 {
+    margin: 35px;
+    font-size: 2.5rem;
+  }
+
+  .levelBox {
+    height: 300px;
+  }
 }

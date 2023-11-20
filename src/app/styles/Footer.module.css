@@ -1,0 +1,6 @@
+/* Landscape style */
+@media screen and (orientation: landscape) {
+  .footer {
+    padding: 2px;
+  }
+}

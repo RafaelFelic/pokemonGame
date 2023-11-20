@@ -1,14 +1,13 @@
 'use client';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useRef, useState, useEffect } from 'react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import React from 'react';
-import 'flowbite';
+import React, { useRef, useState, useEffect } from 'react';
 import styles from '../styles/Game.module.css';
+import 'flowbite';
 
 export default function Game() {
   const router = useRouter();
   const searchParams = useSearchParams();
+
   const initialLevel = searchParams.get('level');
 
   const [level, setLevel] = useState(initialLevel);
@@ -31,7 +30,7 @@ export default function Game() {
         const data = await response.json();
         setPokemons(data.results);
       } catch (error) {
-        console.error('Erro ao buscar dados da API', error);
+        console.error('Error while fetching data from the API', error);
       }
     };
 
@@ -41,7 +40,7 @@ export default function Game() {
   useEffect(() => {
     const allMatched = cards.every((card) => card.isMatched);
     if (allMatched && cards.length > 0) {
-      clearInterval(timerIdRef.current); // Stop the timer immediately
+      clearInterval(timerIdRef.current);
       setIsGameOver(true);
       setHasWon(true);
       document.getElementById('winSound').play();
@@ -50,7 +49,7 @@ export default function Game() {
 
   useEffect(() => {
     if (timer === 0 || lives < 1) {
-      clearInterval(timerIdRef.current); // Stop the timer immediately
+      clearInterval(timerIdRef.current);
       setIsGameOver(true);
       document.getElementById('loseSound').play();
     }
@@ -109,14 +108,14 @@ export default function Game() {
   };
 
   const startTimer = () => {
-    clearInterval(timerIdRef.current); // Clear any existing timer
+    clearInterval(timerIdRef.current);
 
     timerIdRef.current = setInterval(() => {
       setTimer((prevTimer) => {
         if (prevTimer <= 1) {
-          clearInterval(timerIdRef.current); // Stop the timer
+          clearInterval(timerIdRef.current);
           if (prevTimer === 1) {
-            setIsGameOver(true); // Set game over if the timer runs out
+            setIsGameOver(true);
           }
           return 0;
         }
@@ -125,59 +124,51 @@ export default function Game() {
     }, 1000);
   };
 
-  let flipTimeout = null; // Variável global para armazenar o temporizador
+  let flipTimeout = null;
 
   const flipCard = (cardId) => {
-    // Primeiro, verifica se a carta clicada já está combinada.
     const cardAlreadyMatched = cards.some(
       (card) => card.id === cardId && card.isMatched
     );
     if (cardAlreadyMatched) {
-      // Se a carta já está combinada, não faz nada e sai da função.
       return;
     }
 
-    // Continua com a lógica existente para virar a carta.
     let updatedCards = cards.map((card) =>
       card.id === cardId ? { ...card, isFlipped: !card.isFlipped } : card
     );
 
-    // Se houver um temporizador ativo, cancela-o.
     if (flipTimeout) {
       clearTimeout(flipTimeout);
       flipTimeout = null;
     }
 
-    // Filtra todas as cartas que estão viradas para cima e não são correspondidas.
     const flippedCards = updatedCards.filter(
       (card) => card.isFlipped && !card.isMatched
     );
 
-    // Se clicar em uma terceira carta, desvira as duas anteriores imediatamente.
     if (flippedCards.length > 2) {
       updatedCards = updatedCards.map((card) =>
         !card.isMatched ? { ...card, isFlipped: false } : card
       );
     }
 
-    setCards(updatedCards); // Atualiza o estado para refletir as mudanças.
+    setCards(updatedCards);
 
-    // If two cards are flipped, check if they match.
     if (flippedCards.length === 2) {
-      const cardsMatch = flippedCards[0].name === flippedCards[1].name; // Check for match
+      const cardsMatch = flippedCards[0].name === flippedCards[1].name;
 
       if (cardsMatch) {
         document.getElementById('matchSound').play();
         matchSound.currentTime = 0;
-        setScore(score + 1); // Increase the score.
+        setScore(score + 1);
         setCards(
           updatedCards.map((card) =>
             flippedCards.includes(card) ? { ...card, isMatched: true } : card
           )
-        ); // Mark the cards as matched.
+        );
       } else {
-        setLives(lives - 1); // Reduce a life.
-        // Set a short timer to flip the cards back if they don't match.
+        setLives(lives - 1);
         flipTimeout = setTimeout(() => {
           setCards(
             updatedCards.map((card) =>
@@ -196,8 +187,8 @@ export default function Game() {
     hasWon,
     level,
   }) => (
-    <div className="fixed inset-0 flex items-center justify-center text-center bg-black bg-opacity-50 z-50">
-      <div className="bg-white rounded-xl p-2 m-3">
+    <div className="fixed inset-0 flex items-center justify-center text-center bg-black bg-opacity-60 z-50">
+      <div className="bg-white rounded-xl p-2 md:p-10 m-3">
         <h2
           className={
             hasWon
@@ -236,12 +227,12 @@ export default function Game() {
   };
 
   const handleNextLevel = () => {
-    let nextLevel = 'medium'; // default to medium for this example
+    let nextLevel = 'medium';
     if (level === 'easy') {
       nextLevel = 'medium';
     } else if (level === 'medium') {
       nextLevel = 'hard';
-    } // Add more conditions if there are more levels
+    }
 
     // Reset states
     setCards([]);
@@ -253,7 +244,7 @@ export default function Game() {
 
     // Update the level and URL
     setLevel(nextLevel);
-    router.push(`/game?level=${nextLevel}`, undefined, { shallow: true });
+    router.push(`/game?level=${nextLevel}`);
   };
 
   const handleRestart = () => {
@@ -262,7 +253,7 @@ export default function Game() {
     setTimer(60);
     setLives(10);
     setScore(0);
-    setCards([]); // Reset the cards before initializing new ones
+    setCards([]);
     initializeCards();
     startTimer();
   };
@@ -278,15 +269,17 @@ export default function Game() {
         />
       )}
       <div
-        className={`${styles.gameInfo} flex absolute top-[110px] md:top-[160px] w-full justify-around text-white p-5`}
+        className={`${styles.gameInfo} flex absolute top-[110px] md:top-[180px] w-full justify-around text-white p-5`}
       >
         <div className="timer">Time left: {timer} seconds</div>
         <div className="score">Score: {score}</div>
         <div className="lives">Lives: {lives}</div>
       </div>
-      <div className={`grid gap-2.5 ${styles[level]}`}>
+      <div className={`${styles[level]}`}>
         {cards.length === 0 ? (
-          <p>Loading...</p>
+          <p className="absolute inset-0 flex justify-center items-center text-3xl text-blue-800">
+            Loading...
+          </p>
         ) : (
           cards.map((card) => (
             <div
@@ -300,16 +293,21 @@ export default function Game() {
                 <div
                   className={`${styles.cardFront} absolute text-center bg-[#ececec] border border-white rounded shadow w-full h-full`}
                 >
-                  <LazyLoadImage
+                  <img
                     src={card.image}
                     alt={card.name}
                     className={`w-full h-full`}
-                    loading="lazy"
                   />
                 </div>
                 <div
                   className={`${styles.cardBack} flex justify-center items-center text-xl font-bold absolute text-center bg-[#ececec] border border-white rounded shadow w-full h-full`}
-                ></div>
+                >
+                  <img
+                    src="/img/pokeball.svg"
+                    alt="Pokeball"
+                    className="w-16 md:w-28"
+                  />
+                </div>
               </div>
             </div>
           ))
