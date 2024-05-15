@@ -120,6 +120,47 @@
   }
 }
 
+/* Larger screens */
+@media screen and (min-width: 950px) {
+  .easy .card {
+    height: 30vh;
+    width: 20vw;
+  }
+  .medium .card {
+    height: 15vh;
+    width: 20vw;
+  }
+
+  .hard .card {
+    height: 25vh;
+    width: 15vw;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .easy .card {
+    height: 22vh;
+    width: 15vw;
+  }
+  .medium .card {
+    height: 22vh;
+    width: 15vw;
+  }
+
+  .hard .card {
+    height: 22vh;
+    width: 10vw;
+  }
+
+  .medium {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .hard {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
 /* Landscape styles */
 @media screen and (orientation: landscape) and (max-width: 1200px) {
   .gameInfo {

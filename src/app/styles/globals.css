@@ -40,7 +40,7 @@ body {
   background: radial-gradient(
     circle at center,
     var(--yellow) 20%,
-    /* var(--dark-blue) 40%, */ var(--dark-red) 100%
+    /* var(--dark-blue) 100%, */ var(--dark-red) 100%
   );
   background-size: cover;
   height: 100vh;

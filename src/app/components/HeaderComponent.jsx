@@ -22,11 +22,9 @@ export default function HeaderComponent() {
         <img
           src="/img/logo.png"
           alt="Memory Game Logo"
-          className="w-64 md:w-[450px]"
+          className="w-64 md:w-[450px] xl:w-[400px]"
         />
-        <h1 className="text-2xl md:text-5xl lg:text-6xl ml-2 font-black">
-          Memory Game
-        </h1>
+        <h1 className="text-xl md:text-5xl ml-2 font-black">Memory Game</h1>
       </div>
     </header>
   );
