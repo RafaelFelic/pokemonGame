@@ -1,4 +1,4 @@
-# [Pokémon Memory Game](https://pokemonme.netlify.app)
+# [Pokémon Memory Game](https://pokemonmemory.vercel.app)
 
 ## Introduction
 
