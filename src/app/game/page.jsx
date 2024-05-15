@@ -43,7 +43,7 @@ export default function Game() {
       clearInterval(timerIdRef.current);
       setIsGameOver(true);
       setHasWon(true);
-      // document.getElementById('winSound').play();
+      document.getElementById('winSound').play();
     }
   }, [cards]);
 
@@ -51,7 +51,7 @@ export default function Game() {
     if (timer === 0 || lives < 1) {
       clearInterval(timerIdRef.current);
       setIsGameOver(true);
-      // document.getElementById('loseSound').play();
+      document.getElementById('loseSound').play();
     }
   }, [timer, lives]);
 
@@ -159,8 +159,8 @@ export default function Game() {
       const cardsMatch = flippedCards[0].name === flippedCards[1].name;
 
       if (cardsMatch) {
-        // document.getElementById('matchSound').play();
-        // matchSound.currentTime = 0;
+        document.getElementById('matchSound').play();
+        matchSound.currentTime = 0;
         setScore(score + 1);
         setCards(
           updatedCards.map((card) =>
@@ -313,11 +313,11 @@ export default function Game() {
           ))
         )}
       </div>
-      {/* <div>
+      <div>
         <audio id="winSound" src="/audio/win.wav" preload="auto"></audio>
         <audio id="loseSound" src="/audio/loose.wav" preload="auto"></audio>
         <audio id="matchSound" src="/audio/sound.wav" preload="auto"></audio>
-      </div> */}
+      </div>
     </div>
   );
 }
