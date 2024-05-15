@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation';
 import styles from '../../styles/Menu.module.css';
 
 const levelButton =
-  'flex flex-col items-center justify-evenly text-gray-800 text-5xl mb-5 py-3 w-48 md:w-96 h-32 md:h-96 rounded-lg';
+  'flex flex-col items-center justify-center text-gray-800 w-48 md:w-96 h-32 md:h-96 lg:h-72 rounded-lg';
 
 export default function MediumLevel() {
   const router = useRouter();

@@ -11,11 +11,11 @@ export default function FooterComponent() {
         <h3 className="text-xs md:text-lg mb-1 md:mb-2 font-semibold">
           Developed by
         </h3>
-        <ul className="text-xs md:text-base">
-          <li className="mb-0.5 md:mb-1">
+        <ul className="flex justify-center items-center md:flex-col lg:flex-row flex-wrap space-x-2 md:space-x-0 md:space-y-1 xl:space-x-2 xl:space-y-0 text-xs md:text-base">
+          <li className="flex items-center space-x-1">
             <span>Joao Murara</span>
             <a
-              className="ml-1 text-yellow-400 hover:text-yellow-300"
+              className="text-yellow-400 hover:text-yellow-300"
               href="https://www.linkedin.com/in/joao-murara/"
               target="_blank"
               rel="noopener noreferrer"
@@ -23,10 +23,10 @@ export default function FooterComponent() {
               LinkedIn
             </a>
           </li>
-          <li className="mb-0.5 md:mb-1">
+          <li className="flex items-center space-x-1">
             <span>Rafael Feliciano</span>
             <a
-              className="ml-1 text-yellow-400 hover:text-yellow-300"
+              className="text-yellow-400 hover:text-yellow-300"
               href="https://www.linkedin.com/in/rafaelfelic"
               target="_blank"
               rel="noopener noreferrer"
@@ -35,8 +35,8 @@ export default function FooterComponent() {
             </a>
           </li>
         </ul>
-        <div className="mt-1 md:mt-2">
-          <p className="font-light text-xxs md:text-sm">
+        <div className="mt-1">
+          <p className="font-light text-[0.4rem] md:text-xs lg:text-sm">
             This application is for educational purposes only and not intended
             for commercial use. &copy;2023
           </p>

@@ -12,11 +12,11 @@ export default function MenuComponent() {
       className={`${styles.menu} fixed inset-0 flex flex-col justify-center items-center w-9/10 max-w-[1200px] mx-auto my-auto`}
     >
       <h2
-        className={`${styles.h2} text-3xl md:text-5xl text-blue-400 mb-10 md:mb-32`}
+        className={`${styles.h2} text-2xl md:text-5xl lg:text-4xl text-blue-400 z-50 mb-2 md:mb-6`}
       >
         Choose your level
       </h2>
-      <div className="flex flex-col md:flex-row justify-around items-center w-full px-8">
+      <div className="flex flex-col md:flex-row gap-2 items-center w-full px-8">
         <EasyLevel />
         <MediumLevel />
         <HardLevel />
